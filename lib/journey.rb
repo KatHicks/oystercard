@@ -1,25 +1,37 @@
-require_relative 'station.rb'
-
 class Journey
-  attr_reader :trip
+
+  attr_reader :entry_station, :exit_station
 
   MIN_FARE = 1
   PENALTY_FARE = 6
 
-  def initialize
-    @trip = Hash.new
+  def initialize(entry_station = nil, exit_station = nil)
+    @entry_station = entry_station
+    @exit_station = exit_station
   end
 
-  def start(entry_station = nil)
-    entry_station.nil? ? @trip[:entry_station] = entry_station : @trip[:entry_station] = entry_station.name
+  def start(entry)
+    @entry_station = entry
   end
 
-  def finish(exit_station = nil)
-    exit_station.nil? ? @trip[:exit_station] = exit_station : @trip[:exit_station] = exit_station.name
+  def finish(departure)
+    @exit_station = departure
   end
 
   def in_journey?
-    !@trip[:entry_station].nil? && @trip[:exit_station].nil?
+    !entry_station.nil? && exit_station.nil?
+  end
+
+  def valid?
+    !entry_station.nil? && !exit_station.nil?
+  end
+
+  def fare
+    valid? ? calculate_fare(journey) : PENALTY_FARE
+  end
+
+  def calculate_fare
+    ((entry_station.zone) - (exit_station.zone)).abs
   end
 
 end

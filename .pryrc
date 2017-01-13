@@ -1,4 +1,5 @@
 require './lib/oystercard.rb'
+require './lib/journeylog.rb'
 require './lib/journey.rb'
 require './lib/station.rb'
 
