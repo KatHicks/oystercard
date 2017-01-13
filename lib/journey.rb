@@ -1,3 +1,5 @@
+require './lib/station.rb'
+
 class Journey
 
   attr_reader :entry_station, :exit_station
@@ -27,11 +29,11 @@ class Journey
   end
 
   def fare
-    valid? ? calculate_fare(journey) : PENALTY_FARE
+    valid? ? calculate_fare : PENALTY_FARE
   end
 
   def calculate_fare
-    ((entry_station.zone) - (exit_station.zone)).abs
+    MIN_FARE + (((entry_station.zone) - (exit_station.zone)).abs)
   end
 
 end
