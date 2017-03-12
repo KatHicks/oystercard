@@ -16,8 +16,8 @@ describe Oystercard do
   end
 
   describe "balance" do
-    db = Oystercard::DEFAULT_BALANCE
-    limit = Oystercard::LIMIT
+    db = Oystercard::INITIAL_BALANCE
+    limit = Oystercard::BALANCE_LIMIT
     it "has default balance of £#{db}" do
       expect( subject.balance ).to eq db
     end
