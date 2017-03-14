@@ -15,6 +15,8 @@ describe Oystercard do
     allow(exit_station).to receive(:name){"victoria"}
     allow(entry_station).to receive(:zone){1}
     allow(exit_station).to receive(:zone){2}
+
+    @journey = subject.journey_log.current_journey
   end
 
   describe "balance" do
@@ -78,7 +80,8 @@ describe Oystercard do
       subject.top_up(minb)
       subject.touch_in(entry_station)
       subject.touch_out(exit_station)
-      expect(subject.journey_log[0].trip).to include(:entry_station, :exit_station)
+      expect(subject.journey_log.current_journey.entry_station).to eq(entry_station)
+      expect(subject.journey_log.current_journey.exit_station).to eq(exit_station)
     end
   end
 
