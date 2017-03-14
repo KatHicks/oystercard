@@ -32,7 +32,7 @@ describe Oystercard do
 
   describe "#top_up" do
     it { should respond_to(:top_up).with(1).argument }
-    
+
     it "adds money to the card's balance" do
       expect{ subject.top_up(amount) }.to change{ subject.balance }.by amount
     end
@@ -49,7 +49,7 @@ describe Oystercard do
     it "remembers which station the card touched in" do
       subject.top_up(amount)
       subject.touch_in(entry_station)
-      expect(subject.journey.trip).to include(:entry_station)
+      expect(subject.journey_log.current_journey.entry_station).to eq(entry_station)
       end
   end
 
