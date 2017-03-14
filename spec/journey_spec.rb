@@ -41,10 +41,5 @@ describe Journey do
       subject.finish(exit_station)
       expect(subject.exit_station).to eq(exit_station)
     end
-    it "stores entry & exit stations as one journey" do
-      subject.start(entry_station)
-      subject.finish(exit_station)
-      expect(subject.trip).to include(:entry_station, :exit_station)
-    end
   end
 end
