@@ -62,7 +62,7 @@ describe Oystercard do
     it "deducts the correct fare after the journey" do
       subject.top_up(minb)
       subject.touch_in(entry_station)
-      expect{ subject.touch_out(exit_station) }.to change{ subject.balance }.by -1
+      expect{ subject.touch_out(exit_station) }.to change{ subject.balance }.by(-2)
     end
 
     it "forgets the entry station" do
