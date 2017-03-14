@@ -69,7 +69,7 @@ describe Oystercard do
       subject.top_up(minb)
       subject.touch_in(entry_station)
       subject.touch_out(exit_station)
-      expect(subject.journey.trip).to include(:exit_station)
+      expect(subject.journey_log.current_journey.exit_station).to eq(exit_station)
     end
   end
 
