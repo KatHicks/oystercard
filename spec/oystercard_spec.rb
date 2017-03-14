@@ -18,9 +18,11 @@ describe Oystercard do
   describe "balance" do
     db = Oystercard::INITIAL_BALANCE
     limit = Oystercard::BALANCE_LIMIT
+
     it "has default balance of £#{db}" do
       expect( subject.balance ).to eq db
     end
+
     it "balance will not exceed £#{limit}" do
       error = "£#{limit} limit reached"
       allow(oystercard).to receive(:balance).and_return(0)
@@ -30,6 +32,7 @@ describe Oystercard do
 
   describe "#top_up" do
     it { should respond_to(:top_up).with(1).argument }
+    
     it "adds money to the card's balance" do
       expect{ subject.top_up(amount) }.to change{ subject.balance }.by amount
     end
