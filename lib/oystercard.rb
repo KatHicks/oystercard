@@ -12,7 +12,7 @@ class Oystercard
 
   def initialize(balance = INITIAL_BALANCE)
     @balance = balance
-    @journey_log = JourneyLog.new
+    @journey_log = JourneyLonew
   end
 
   def top_up(amount)
