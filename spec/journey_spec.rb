@@ -32,12 +32,6 @@ describe Journey do
     end
   end
 
-  describe "#journey_log" do
-    it "has no journeys by default" do
-      expect(subject.trip).to be_empty
-    end
-  end
-
   describe '#start' do
     it "has the entry station" do
       subject.start(entry_station)
