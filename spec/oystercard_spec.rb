@@ -13,6 +13,8 @@ describe Oystercard do
   before do
     allow(entry_station).to receive(:name){"euston"}
     allow(exit_station).to receive(:name){"victoria"}
+    allow(entry_station).to receive(:zone){1}
+    allow(exit_station).to receive(:zone){2}
   end
 
   describe "balance" do
@@ -60,7 +62,7 @@ describe Oystercard do
     it "deducts the correct fare after the journey" do
       subject.top_up(minb)
       subject.touch_in(entry_station)
-      expect{subject.touch_out(exit_station)}.to change{subject.balance}.by -1
+      expect{ subject.touch_out(exit_station) }.to change{ subject.balance }.by -1
     end
 
     it "forgets the entry station" do
