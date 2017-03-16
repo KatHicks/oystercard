@@ -83,7 +83,7 @@ I need to have the correct fare calculated
 
 ### Approach
 
-
+* Tried to extend my OOD approaches this week - particularly around dependency injection
 
 ### Reflections
 
