@@ -69,7 +69,22 @@ I need to have the correct fare calculated
 * Within the command line, type the following commands to interact with the programme:
 
 ```
-
+2.3.0 :001 > require './lib/station.rb'
+ => true
+2.3.0 :002 > require './lib/journey.rb'
+ => true
+2.3.0 :003 > require './lib/journeylog.rb'
+ => true
+2.3.0 :004 > require './lib/oystercard.rb'
+ => true
+2.3.0 :005 > my_card = Oystercard.new
+ => #<Oystercard:0x007ff8da12f8d8 @balance=0, @journey_log=#<JourneyLog:0x007ff8da12f8b0 @journey_history=[], @current_journey=nil>>
+2.3.0 :006 > my_card.balance
+ => 0
+2.3.0 :007 > my_card.top_up(30)
+ => 30
+2.3.0 :008 > my_card.balance
+ => 30
 ```
 
 ### Running the tests
