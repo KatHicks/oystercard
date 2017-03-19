@@ -113,7 +113,7 @@ I need to have the correct fare calculated
 
 * Tried to extend my OOD approaches this week - particularly around dependency injection
 * Focused on the details of my code such as using constants for magic numbers, so that key numbers are not hard coded into the code base and also extracted boolean logic to guard clause methods such as the `valid?` method in the `Journey` class
-* Testing approach focused on doubles and trying to follow the Chicago school of testing
+* Testing approach focused on doubles and trying to follow the London School of Testing
 
 ### Reflections
 
