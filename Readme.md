@@ -66,7 +66,8 @@ I need to have the correct fare calculated
 ### Using my application
 
 * Download the source code using `$ git clone`
-* Within the command line, type the following commands to interact with the programme:
+* Within the command line, type `$ irb` to open the Ruby REPL
+* Then, use the following commands to interact with the programme:
 
 ```
 2.3.0 :001 > require './lib/station.rb'
@@ -89,7 +90,7 @@ I need to have the correct fare calculated
 
 ### Running the tests
 
-* Within the root of the directory, run `$ rspec` to run the tests and see the formatted documentation in the command line
+* Within the root of the directory, run `$ rspec` to run the tests and see the results in the command line
 
 ### Dependencies
 
@@ -99,14 +100,21 @@ I need to have the correct fare calculated
 ### Approach
 
 * Tried to extend my OOD approaches this week - particularly around dependency injection
+* Focused on the details of my code such as using constants for magic numbers, so that key numbers are not hard coded into the code base and also extracted boolean logic to guard clause methods such as the `valid?` method in the `Journey` class
+* Testing approach focused on doubles and trying to follow the Chicago school of testing
 
 ### Reflections
 
-
+* One of the biggest learnings this week was realising that objects do not need to perfectly map to nouns within the user stories
+  * Extracting the `JourneyLog` class felt quite strange at first, but as we moved through the class extractions, it began to make more sense
+  * We were encouraged to use 'understands' statements to realise the need for each class such as *'this class understands journeys'* or *'this class understands the sequencing of journeys'*
+    * General rule of thumb is if an 'understands' statement has an 'and' in it, then you need to extract another class
 
 ### Ideas for extension
 
-
+* It would be nice to write some RSpec feature tests to test the full sequence of interactions
+  * Would help me check for edge cases which haven't been given much attention so far
+* It would also be interesting to generate a csv file of stations with zones and then instantiate a whole bunch of `Station` objects within these feature tests straight from the file
 
 ### Collaborators
 
