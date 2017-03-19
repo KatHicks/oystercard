@@ -86,6 +86,18 @@ I need to have the correct fare calculated
  => 30
 2.3.0 :008 > my_card.balance
  => 30
+2.3.0 :009 > euston = Station.new('Euston', 1)
+ => #<Station:0x007fa1b3898f08 @name="Euston", @zone=1>
+2.3.0 :010 > stepney_green = Station.new('Stepney Green', 2)
+ => #<Station:0x007fa1b29703f0 @name="Stepney Green", @zone=2>
+2.3.0 :011 > my_card.touch_in(euston)
+ => nil
+2.3.0 :012 > my_card.balance
+ => 30
+2.3.0 :013 > my_card.touch_out(stepney_green)
+ => 28
+2.3.0 :014 > my_card.balance
+ => 28
 ```
 
 ### Running the tests
